@@ -1,0 +1,24 @@
+// Last updated: 7/16/2026, 4:09:00 PM
+class Solution {
+    TreeNode prev;
+        
+    public boolean isValidBST(TreeNode root) {
+        if (root == null)
+            return true;
+        
+        if(!isValidBST(root.left))
+            return false;
+        
+        if (prev != null && prev.val >= root.val)
+            return false;
+        
+        prev = root;
+        
+        if (!isValidBST(root.right))
+            return false;
+        
+        return true;
+        
+        
+    }
+}
